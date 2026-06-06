@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+// import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -9,6 +10,8 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Login from './admin/Login'
 import Dashboard from './admin/Dashboard'
+
+
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth()
@@ -40,7 +43,7 @@ const LoginRoute = ({ children }) => {
 
 function AppContent() {
   return (
-    <Router>
+    <HashRouter>
       <div className="App">
         <Routes>
           <Route path="/admin/login" element={
@@ -66,7 +69,7 @@ function AppContent() {
           } />
         </Routes>
       </div>
-    </Router>
+    </HashRouter>
   )
 }
 
